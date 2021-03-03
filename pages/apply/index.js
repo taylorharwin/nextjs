@@ -9,12 +9,16 @@ export default function Apply() {
   return (
     <div className={styles.container}>
       <Head>
-        <title>Search the directory</title>
+        <title>Apply as a moderator</title>
+        <script
+          type="text/javascript"
+          src="https://form.jotform.com/jsform/210615048066046"
+        ></script>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <main className={styles.main}>
-        <h1 className={styles.title}>Search the directory</h1>
+        <h1 className={styles.title}>Apply to be a moderator</h1>
       </main>
 
       <footer className={styles.footer}>Copyright 2021 findamod.com</footer>
