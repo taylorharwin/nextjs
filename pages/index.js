@@ -28,14 +28,14 @@ export default function Home() {
         </p>
 
         <div className={styles.grid}>
-          <a href="/search" className={styles.card}>
+          {/* <a href="/search" className={styles.card}>
             <h3>Find a Mod</h3>
             <p></p>
-          </a>
-          {/* <a href="/apply" className={styles.card}>
+          </a> */}
+          <a href="/apply" className={styles.card}>
             <h3>Apply as a Mod</h3>
             <p></p>
-          </a> */}
+          </a>
         </div>
       </main>
 

@@ -1,22 +1,29 @@
+import React from "react";
 import Head from "next/head";
+
+import { formium } from "../../lib/formium";
+import { FormiumForm } from "@formium/react";
 import styles from "../../styles/Home.module.css";
-import { useRouter } from "next/router";
 
-export default function Apply() {
-  const router = useRouter();
-
+export async function getStaticProps(context) {
+  // You can find your form's slug in the API Information panel
+  // on your form's Overview page in the dashboard.
+  const form = await formium.getFormBySlug("findamod");
+  return { props: { form } };
+}
+// Your formium form is now available as a prop
+export default function Apply({ form }) {
+  console.log(form); // Check your console to ensure you're fetching data
   return (
     <div className={styles.container}>
       <Head>
-        <title>Apply as a moderator</title>
-
+        <title>Apply to be a moderator</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <main className={styles.main}>
-        <h1 className={styles.title}>Apply to be a moderator</h1>
+        <FormiumForm data={form} />
       </main>
-
       <footer className={styles.footer}>Copyright 2021 findamod.com</footer>
     </div>
   );
