@@ -17,7 +17,7 @@ export default function Search() {
         <h1 className={styles.title}>Search the directory</h1>
       </main>
 
-      <footer className={styles.footer}>copyright 2021 findamod.com</footer>
+      <footer className={styles.footer}>Copyright 2021 findamod.com</footer>
     </div>
   );
 }

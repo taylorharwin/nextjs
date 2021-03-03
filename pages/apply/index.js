@@ -2,7 +2,7 @@ import React from "react";
 import Head from "next/head";
 
 import { formium } from "../../lib/formium";
-import { FormiumForm } from "@formium/react";
+import { FormiumForm, defaultComponents } from "@formium/react";
 import styles from "../../styles/Home.module.css";
 
 export async function getStaticProps(context) {
@@ -22,7 +22,15 @@ export default function Apply({ form }) {
       </Head>
 
       <main className={styles.main}>
-        <FormiumForm data={form} />
+        <FormiumForm
+          onSubmit={async (values) => {
+            // Send form values to Formium
+            await formium.submitForm("findamod", values);
+            alert("Success");
+          }}
+          components={defaultComponents}
+          data={form}
+        />
       </main>
       <footer className={styles.footer}>Copyright 2021 findamod.com</footer>
     </div>

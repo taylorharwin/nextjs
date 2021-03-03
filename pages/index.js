@@ -19,22 +19,38 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
+      <div className={styles.header}>
+        <a href="/faq" className={styles.secondaryCTA}>
+          <p>How we select our moderators</p>
+        </a>
+        <a href="/apply" className={styles.primaryCTA}>
+          <p>Apply to be a moderator</p>
+        </a>
+      </div>
+
       <main className={styles.main}>
-        <h1 className={styles.title}>Find a Mod</h1>
+        <h1 className={styles.title}>
+          <div className={styles.emoji}>
+            <Emoji symbol="✳️" label="eight spoked asterisk" />
+          </div>
+          Find a Mod
+        </h1>
 
         <p className={styles.description}>
-          We get professional moderators for your brand's Clubhouse
-          <Emoji symbol="✳️" label="eight spoked asterisk" />
+          We get professional moderators for your brand's Clubhouse events
+          <div className={styles.emoji}>
+            <Emoji symbol="🎙️" label="eight spoked asterisk" />
+          </div>
+        </p>
+
+        <p className={styles.description}>
+          We're carefully selecting the best moderators and will launch soon.
+          Sign up to be first to hear of our launch.
         </p>
 
         <div className={styles.grid}>
-          {/* <a href="/search" className={styles.card}>
-            <h3>Find a Mod</h3>
-            <p></p>
-          </a> */}
-          <a href="/apply" className={styles.card}>
-            <h3>Apply as a Mod</h3>
-            <p></p>
+          <a href="/apply" className={styles.primaryCTA}>
+            <h3>Join the Waitlist</h3>
           </a>
         </div>
       </main>
