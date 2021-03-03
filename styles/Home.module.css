@@ -80,6 +80,11 @@
   margin-top: 3rem;
 }
 
+.row {
+  display: flex;
+  flex-direction: row;
+}
+
 .card {
   margin: 1rem;
   flex-basis: 45%;
