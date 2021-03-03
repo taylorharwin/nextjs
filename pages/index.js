@@ -24,7 +24,7 @@ export default function Home() {
 
         <p className={styles.description}>
           We get professional moderators for your brand's Clubhouse
-          <Emoji symbol="🎙️" label="studio microphone" />
+          <Emoji symbol="✳️" label="eight spoked asterisk" />
         </p>
 
         <div className={styles.grid}>
@@ -32,14 +32,14 @@ export default function Home() {
             <h3>Find a Mod</h3>
             <p></p>
           </a>
-          <a href="/apply" className={styles.card}>
+          {/* <a href="/apply" className={styles.card}>
             <h3>Apply as a Mod</h3>
             <p></p>
-          </a>
+          </a> */}
         </div>
       </main>
 
-      <footer className={styles.footer}>Copyright 2021 findamod.com</footer>
+      <footer className={styles.footer}>copyright 2021 findamod.com</footer>
     </div>
   );
 }

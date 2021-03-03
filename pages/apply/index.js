@@ -1,6 +1,5 @@
 import Head from "next/head";
 import styles from "../../styles/Home.module.css";
-import Emoji from "../../components/emoji";
 import { useRouter } from "next/router";
 
 export default function Apply() {
@@ -10,10 +9,7 @@ export default function Apply() {
     <div className={styles.container}>
       <Head>
         <title>Apply as a moderator</title>
-        <script
-          type="text/javascript"
-          src="https://form.jotform.com/jsform/210615048066046"
-        ></script>
+
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
