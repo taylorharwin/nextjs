@@ -1,8 +1,11 @@
 import React from "react";
 import Head from "next/head";
+import { FormiumForm, defaultComponents } from "@formium/react";
 
 import { formium } from "../../lib/formium";
-import { FormiumForm, defaultComponents } from "@formium/react";
+
+import components from "../../components/forms";
+
 import styles from "../../styles/Home.module.css";
 
 export async function getStaticProps(context) {
@@ -13,26 +16,37 @@ export async function getStaticProps(context) {
 }
 // Your formium form is now available as a prop
 export default function Apply({ form }) {
-  console.log(form); // Check your console to ensure you're fetching data
+  const myComponents = {
+    ...defaultComponents,
+    ...components,
+  };
+
   return (
     <div className={styles.container}>
       <Head>
+        <link rel="preconnect" href="https://fonts.gstatic.com" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans&display=swap"
+          rel="stylesheet"
+        />
         <title>Apply to be a moderator</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <main className={styles.main}>
-        <FormiumForm
-          onSubmit={async (values) => {
-            // Send form values to Formium
-            await formium.submitForm("findamod", values);
-            alert("Success");
-          }}
-          components={defaultComponents}
-          data={form}
-        />
+        <div className={styles.formStyle}>
+          <FormiumForm
+            onSubmit={async (values) => {
+              // Send form values to Formium
+              await formium.submitForm("findamod", values);
+              alert("Success");
+            }}
+            components={myComponents}
+            data={form}
+          />
+        </div>
       </main>
-      <footer className={styles.footer}>Copyright 2021 findamod.com</footer>
+      <footer className={styles.footer}>copyright 2021 findamod.com</footer>
     </div>
   );
 }

@@ -1,23 +1,45 @@
-import Head from "next/head";
-import styles from "../../styles/Home.module.css";
-import Emoji from "../../components/emoji";
-import { useRouter } from "next/router";
+import React from "react";
+import { Formik, Form, Field } from "formik";
+import { TextField } from "material-ui-formik-components/TextField";
+import { Select } from "material-ui-formik-components/Select";
 
-export default function Search() {
-  const router = useRouter();
-
-  return (
-    <div className={styles.container}>
-      <Head>
-        <title>Search the directory</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
-      <main className={styles.main}>
-        <h1 className={styles.title}>Search the directory</h1>
-      </main>
-
-      <footer className={styles.footer}>Copyright 2021 findamod.com</footer>
-    </div>
-  );
+class RegistrationForm extends React.PureComponent {
+  render() {
+    return (
+      <div>
+        <h1>Register</h1>
+        <Formik
+          initialValues={{
+            username: "",
+            gender: "Male",
+          }}
+          onSubmit={(values) => {
+            alert(`Username: ${values.username}\nGender: ${values.gender}`);
+          }}
+        >
+          {(formik) => (
+            <Form>
+              <Field name="username" label="Username" component={TextField} />
+              <Field
+                required
+                name="gender"
+                label="Gender"
+                options={[
+                  { value: "Male", label: "Male" },
+                  { value: "Female", label: "Female" },
+                  { value: "Other", label: "Other" },
+                ]}
+                component={Select}
+              />
+              <button type="submit" disabled={!formik.dirty}>
+                Submit
+              </button>
+            </Form>
+          )}
+        </Formik>
+      </div>
+    );
+  }
 }
+
+export default RegistrationForm;

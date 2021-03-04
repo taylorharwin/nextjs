@@ -10,6 +10,10 @@
   "dependencies": {
     "@formium/client": "latest",
     "@formium/react": "latest",
+    "@material-ui/core": "^4.11.3",
+    "formik": "^2.2.6",
+    "formik-material-ui": "^3.0.1",
+    "material-ui-formik-components": "^0.7.3",
     "next": "^9.5.3",
     "react": "latest",
     "react-dom": "latest"

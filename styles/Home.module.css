@@ -167,3 +167,76 @@
     flex-direction: column;
   }
 }
+
+.formStyle {
+  width: 100%;
+  padding: 2rem;
+  background: #f7f7f7;
+}
+.formStyle h1 {
+  background: #43d1af;
+  padding: 20px 0;
+  font-size: 140%;
+  font-weight: 300;
+  text-align: center;
+  color: #fff;
+  margin: -16px -16px 16px -16px;
+}
+.formStyle input[type="text"],
+.formStyle input[type="date"],
+.formStyle input[type="datetime"],
+.formStyle input[type="email"],
+.formStyle input[type="number"],
+.formStyle input[type="search"],
+.formStyle input[type="time"],
+.formStyle input[type="url"],
+.formStyle textarea,
+.formStyle select {
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -ms-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  outline: none;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  width: 100%;
+  background: #fff;
+  border: 1px solid #ccc;
+  padding: 3%;
+  color: #555;
+  margin-bottom: 0.5rem;
+}
+.formStyle input[type="text"]:focus,
+.formStyle input[type="date"]:focus,
+.formStyle input[type="datetime"]:focus,
+.formStyle input[type="email"]:focus,
+.formStyle input[type="number"]:focus,
+.formStyle input[type="search"]:focus,
+.formStyle input[type="time"]:focus,
+.formStyle input[type="url"]:focus,
+.formStyle textarea:focus,
+.formStyle select:focus {
+  box-shadow: 0 0 5px #43d1af;
+  padding: 3%;
+  border: 1px solid #43d1af;
+}
+
+.formStyle input[type="submit"],
+.formStyle input[type="button"] {
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  width: 100%;
+  padding: 3%;
+  background: #43d1af;
+  border-bottom: 2px solid #30c29e;
+  border-top-style: none;
+  border-right-style: none;
+  border-left-style: none;
+  color: #fff;
+}
+.formStyle input[type="submit"]:hover,
+.formStyle input[type="button"]:hover {
+  background: #2ebc99;
+}

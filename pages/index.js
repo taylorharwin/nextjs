@@ -1,10 +1,29 @@
+import React from "react";
 import Head from "next/head";
 import styles from "../styles/Home.module.css";
 import Emoji from "../components/emoji";
 import { useRouter } from "next/router";
 
-export default function Home() {
+import components from "../components/forms";
+
+import { FormiumForm, defaultComponents } from "@formium/react";
+
+import { formium } from "../lib/formium";
+
+export async function getStaticProps(context) {
+  // You can find your form's slug in the API Information panel
+  // on your form's Overview page in the dashboard.
+  const form = await formium.getFormBySlug("email");
+  return { props: { form } };
+}
+export default function Home({ form }) {
   const router = useRouter();
+  const [success, setSuccess] = React.useState(false);
+
+  const myComponents = {
+    ...defaultComponents,
+    ...components,
+  };
 
   const handleClick = (e) => {
     console.log(e);
@@ -12,11 +31,30 @@ export default function Home() {
     // router.push(href);
   };
 
+  const message = success ? (
+    <h3>Your response is tracked. Thanks so much!</h3>
+  ) : (
+    <FormiumForm
+      onSubmit={async (values) => {
+        // Send form values to Formium
+        await formium.submitForm("email", values);
+        setSuccess(true);
+      }}
+      components={myComponents}
+      data={form}
+    />
+  );
+
   return (
     <div className={styles.container}>
       <Head>
         <title>Find a Mod</title>
         <link rel="icon" href="/favicon.ico" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans&display=swap"
+          rel="stylesheet"
+        />
       </Head>
 
       <div className={styles.header}>
@@ -48,11 +86,7 @@ export default function Home() {
           Sign up to be first to hear of our launch.
         </p>
 
-        <div className={styles.grid}>
-          <a href="/apply" className={styles.primaryCTA}>
-            <h3>Join the Waitlist</h3>
-          </a>
-        </div>
+        <div className={styles.grid}>{message}</div>
       </main>
 
       <footer className={styles.footer}>copyright 2021 findamod.com</footer>
