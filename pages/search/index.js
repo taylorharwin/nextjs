@@ -22,8 +22,9 @@ export default function Search() {
         </a>
       </div>
 
-      <main style={{ width: "100%", marginLeft: "10%", marginRight: "10%" }}>
-        <h1>Search the directory and select mods to book</h1>
+      <main style={{ width: "90%", marginLeft: "10%", marginRight: "10%" }}>
+        <h1>Search the directory for mods</h1>{" "}
+        <h3>Filter for what you need and click "Request to Book"</h3>
         <iframe
           className="airtable-embed"
           src="https://airtable.com/embed/shrkymEddJiRnXOz0?backgroundColor=cyan&viewControls=on"

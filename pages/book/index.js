@@ -66,9 +66,7 @@ export default function Home({ form }) {
         </a>
       </div>
 
-      <main className={styles.main}>
-        <div className={styles.grid}>{message}</div>
-      </main>
+      <main className={styles.main}>{message}</main>
 
       <footer className={styles.footer}>copyright 2021 findamod.com</footer>
     </div>
