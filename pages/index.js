@@ -38,10 +38,18 @@ export default function Home({ form }) {
       </Head>
 
       <div className={styles.header}>
-        <span style={{ display: "flex", width: "100%" }}>
-          <a href="/faq" className={styles.secondaryCTA}>
+        <div>
+          <h3 className={styles.description}>
+            <div className={styles.emoji}>
+              <Emoji symbol="✳️" label="eight spoked asterisk" />
+            </div>
+            Find a mod
+          </h3>
+        </div>
+        <span style={{ display: "flex" }}>
+          {/* <a href="/faq" className={styles.secondaryCTA}>
             <p>How we select our moderators</p>
-          </a>
+          </a> */}
           <a href="/apply" className={styles.primaryCTA}>
             <p>Apply to be a moderator</p>
           </a>

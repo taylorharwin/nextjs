@@ -14,12 +14,22 @@ export default function Search() {
       </Head>
 
       <div className={styles.header}>
-        <a href="/faq" className={styles.secondaryCTA}>
-          <p>How we select our moderators</p>
-        </a>
-        <a href="/apply" className={styles.primaryCTA}>
-          <p>Apply to be a moderator</p>
-        </a>
+        <div>
+          <h3 className={styles.description}>
+            <div className={styles.emoji}>
+              <Emoji symbol="✳️" label="eight spoked asterisk" />
+            </div>
+            Find a mod
+          </h3>
+        </div>
+        <span style={{ display: "flex" }}>
+          {/* <a href="/faq" className={styles.secondaryCTA}>
+            <p>How we select our moderators</p>
+          </a> */}
+          <a href="/apply" className={styles.primaryCTA}>
+            <p>Apply to be a moderator</p>
+          </a>
+        </span>
       </div>
 
       <main style={{ width: "90%", marginLeft: "10%", marginRight: "10%" }}>
