@@ -75,9 +75,6 @@ export default function Home({ form }) {
         </p>
 
         <div className={styles.grid}>
-          <a href="/faq" className={styles.secondaryCTA}>
-            <p>Request a consultation</p>
-          </a>
           <a href="/apply_brand" className={styles.primaryCTA}>
             <p>Request a verified moderator</p>
           </a>
