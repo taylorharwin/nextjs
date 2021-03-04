@@ -2,33 +2,36 @@ import React from "react";
 
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
-import { RadioGroup } from "formik-material-ui";
+import Radio from "@material-ui/core/Radio";
+import Checkbox from "@material-ui/core/Checkbox";
+import FormControlLabel from "@material-ui/core/FormControlLabel";
 
-const Checkbox = ({ label, value, name, id, checked, onChange, ...props }) => {
+const MyCheckbox = ({
+  label,
+  value,
+  name,
+  id,
+  checked,
+  onChange,
+  ...props
+}) => {
   return (
     <label>
-      <input
-        type="checkbox"
-        id={id}
-        name={name}
-        checked={checked}
-        value={value}
-        onChange={onChange}
-        {...props}
-      />
+      <Checkbox {...props} />
       {label}
     </label>
   );
 };
 
-const Radio = ({ label, ...props }) => {
+const MyRadio = ({ label, ...props }) => {
   return (
     <label>
-      <input type="radio" {...props} />
+      <Radio {...props} />
       {label}
     </label>
   );
 };
+
 const FormControl = React.memo(function FormControl({
   children,
   description,
@@ -37,7 +40,7 @@ const FormControl = React.memo(function FormControl({
   labelFor,
 }) {
   return (
-    <div style={{ marginBottom: "1.5rem" }}>
+    <div style={{ marginBottom: "0.5rem" }}>
       {label && (
         <div>
           <label style={{ fontSize: "1rem" }} htmlFor={labelFor}>
@@ -53,10 +56,11 @@ const FormControl = React.memo(function FormControl({
 });
 
 const components = {
-  Checkbox,
+  Checkbox: MyCheckbox,
   TextInput: TextField,
-  Radio,
+  Radio: MyRadio,
   FormControl,
+  Button,
 };
 
 export default components;
