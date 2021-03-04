@@ -35,6 +35,7 @@ export default function Home({ form }) {
     <div styles={{ width: "100%", textAlign: "left" }}>
       <FormiumForm
         onSubmit={async (values) => {
+          values.userName = name;
           // Send form values to Formium
           await formium.submitForm("requesttobook", values);
           setSuccess(true);
