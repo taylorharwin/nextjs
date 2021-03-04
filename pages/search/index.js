@@ -13,8 +13,25 @@ export default function Search() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className={styles.main}>
-        <h1 className={styles.title}>Search the directory</h1>
+      <div className={styles.header}>
+        <a href="/faq" className={styles.secondaryCTA}>
+          <p>How we select our moderators</p>
+        </a>
+        <a href="/apply" className={styles.primaryCTA}>
+          <p>Apply to be a moderator</p>
+        </a>
+      </div>
+
+      <main style={{ width: "100%", marginLeft: "10%", marginRight: "10%" }}>
+        <iframe
+          class="airtable-embed"
+          src="https://airtable.com/embed/shrkymEddJiRnXOz0?backgroundColor=cyan&viewControls=on"
+          frameborder="0"
+          onmousewheel=""
+          width="100%"
+          height="533"
+          style={{ background: "transparent", border: "1px solid #ccc" }}
+        ></iframe>
       </main>
 
       <footer className={styles.footer}>copyright 2021 findamod.com</footer>
