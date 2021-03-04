@@ -38,7 +38,6 @@ export default function Home({ form }) {
       </Head>
 
       <div className={styles.header}>
-        <div>Some Header</div>
         <span style={{ display: "flex", width: "100%" }}>
           <a href="/faq" className={styles.secondaryCTA}>
             <p>How we select our moderators</p>
