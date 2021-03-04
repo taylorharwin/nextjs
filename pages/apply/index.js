@@ -34,7 +34,7 @@ export default function Apply({ form }) {
       </Head>
 
       <main className={styles.main}>
-        <div className={styles.formStyle}>
+        <div className={styles.container}>
           <FormiumForm
             onSubmit={async (values) => {
               // Send form values to Formium

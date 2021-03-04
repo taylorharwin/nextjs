@@ -1,13 +1,8 @@
 import React from "react";
 
-const Radio = ({ label, ...props }) => {
-  return (
-    <label>
-      <input type="radio" {...props} />
-      {label}
-    </label>
-  );
-};
+import Button from "@material-ui/core/Button";
+import TextField from "@material-ui/core/TextField";
+import { RadioGroup } from "formik-material-ui";
 
 const Checkbox = ({ label, value, name, id, checked, onChange, ...props }) => {
   return (
@@ -26,14 +21,42 @@ const Checkbox = ({ label, value, name, id, checked, onChange, ...props }) => {
   );
 };
 
-const TextInput = React.memo(function TextInput(props) {
-  return <input {...props} />;
+const Radio = ({ label, ...props }) => {
+  return (
+    <label>
+      <input type="radio" {...props} />
+      {label}
+    </label>
+  );
+};
+const FormControl = React.memo(function FormControl({
+  children,
+  description,
+  error,
+  label,
+  labelFor,
+}) {
+  return (
+    <div style={{ marginBottom: "1.5rem" }}>
+      {label && (
+        <div>
+          <label style={{ fontSize: "1rem" }} htmlFor={labelFor}>
+            {label}
+          </label>
+        </div>
+      )}
+      {description && <div>{description}</div>}
+      {children}
+      {/* {error && <div>{error}</div>} */}
+    </div>
+  );
 });
 
 const components = {
   Checkbox,
-  TextInput,
+  TextInput: TextField,
   Radio,
+  FormControl,
 };
 
 export default components;
