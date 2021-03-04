@@ -28,6 +28,7 @@ export default function Apply({ form }) {
   return (
     <div className={styles.container}>
       <Head>
+        <script src="https://static.airtable.com/js/embed/embed_snippet_v1.js"></script>
         <link rel="preconnect" href="https://fonts.gstatic.com" />
         <link
           href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans&display=swap"
@@ -46,22 +47,16 @@ export default function Apply({ form }) {
         </a>
       </div>
 
-      <main className={styles.main}>
-        <div className={styles.container}>
-          <FormiumForm
-            onSubmit={async (values) => {
-              // Send form values to Formium
-              try {
-                await formium.submitForm("findamod", values);
-                router.push("/faq");
-              } catch (err) {
-                console.warn(err);
-              }
-            }}
-            components={myComponents}
-            data={form}
-          />
-        </div>
+      <main style={{ width: "90%", marginLeft: "10%", marginRight: "10%" }}>
+        <iframe
+          className="airtable-embed airtable-dynamic-height"
+          src="https://airtable.com/embed/shrvKqOlxnprM7xfJ"
+          frameborder="0"
+          onmousewheel=""
+          width="100%"
+          height="1458"
+          style={{ background: "transparent" }}
+        ></iframe>
       </main>
       <footer className={styles.footer}>copyright 2021 findamod.com</footer>
     </div>
