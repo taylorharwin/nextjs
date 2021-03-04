@@ -25,24 +25,20 @@ export default function Home({ form }) {
     ...components,
   };
 
-  const handleClick = (e) => {
-    console.log(e);
-    e.preventDefault();
-    // router.push(href);
-  };
-
   const message = success ? (
     <h3>Your response is tracked. Thanks so much!</h3>
   ) : (
-    <FormiumForm
-      onSubmit={async (values) => {
-        // Send form values to Formium
-        await formium.submitForm("email", values);
-        setSuccess(true);
-      }}
-      components={myComponents}
-      data={form}
-    />
+    <div styles={{ textAlign: "left" }}>
+      <FormiumForm
+        onSubmit={async (values) => {
+          // Send form values to Formium
+          await formium.submitForm("email", values);
+          setSuccess(true);
+        }}
+        components={myComponents}
+        data={form}
+      />
+    </div>
   );
 
   return (
@@ -81,7 +77,14 @@ export default function Home({ form }) {
           </div>
         </p>
 
-        <p style={{ width: "50%", textAlign: "center", fontSize: "24px" }}>
+        <p
+          style={{
+            width: "50%",
+            textAlign: "center",
+            fontSize: "16px",
+            marginBottom: "32px",
+          }}
+        >
           We're carefully selecting the best moderators and will launch soon.
           Sign up to be first to hear of our launch.
         </p>
