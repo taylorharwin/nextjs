@@ -81,7 +81,7 @@ export default function Home({ form }) {
           </div>
         </p>
 
-        <p className={styles.description}>
+        <p style={{ width: "50%", textAlign: "center", fontSize: "24px" }}>
           We're carefully selecting the best moderators and will launch soon.
           Sign up to be first to hear of our launch.
         </p>

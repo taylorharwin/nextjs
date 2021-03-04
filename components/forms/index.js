@@ -4,7 +4,19 @@ import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
 import Radio from "@material-ui/core/Radio";
 import Checkbox from "@material-ui/core/Checkbox";
-import FormControlLabel from "@material-ui/core/FormControlLabel";
+
+import { makeStyles } from "@material-ui/core/styles";
+
+const useStyles = makeStyles({
+  root: {
+    border: 0,
+    borderRadius: 3,
+    boxShadow: "0 3px 5px 2px rgba(255, 105, 135, .3)",
+    height: 48,
+    padding: "0 30px",
+    width: "100%",
+  },
+});
 
 const MyCheckbox = ({
   label,
@@ -32,6 +44,17 @@ const MyRadio = ({ label, ...props }) => {
   );
 };
 
+const MyTextField = ({ label, ...props }) => {
+  return (
+    <TextField
+      style={{ width: "100%" }}
+      id="outlined-basic"
+      label={label}
+      variant="outlined"
+    />
+  );
+};
+
 const FormControl = React.memo(function FormControl({
   children,
   description,
@@ -40,7 +63,7 @@ const FormControl = React.memo(function FormControl({
   labelFor,
 }) {
   return (
-    <div style={{ marginBottom: "0.5rem" }}>
+    <div style={{ marginBottom: "1rem" }}>
       {label && (
         <div>
           <label style={{ fontSize: "1rem" }} htmlFor={labelFor}>
@@ -49,7 +72,7 @@ const FormControl = React.memo(function FormControl({
         </div>
       )}
       {description && <div>{description}</div>}
-      {children}
+      <div>{children}</div>
       {/* {error && <div>{error}</div>} */}
     </div>
   );
@@ -57,7 +80,7 @@ const FormControl = React.memo(function FormControl({
 
 const components = {
   Checkbox: MyCheckbox,
-  TextInput: TextField,
+  TextInput: MyTextField,
   Radio: MyRadio,
   FormControl,
   Button,

@@ -33,6 +33,15 @@ export default function Apply({ form }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
+      <div className={styles.header}>
+        <a href="/faq" className={styles.secondaryCTA}>
+          <p>How we select our moderators</p>
+        </a>
+        <a href="/apply" className={styles.primaryCTA}>
+          <p>Apply to be a moderator</p>
+        </a>
+      </div>
+
       <main className={styles.main}>
         <div className={styles.container}>
           <FormiumForm
