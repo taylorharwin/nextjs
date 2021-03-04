@@ -24,7 +24,7 @@ export default function Search() {
 
       <main style={{ width: "100%", marginLeft: "10%", marginRight: "10%" }}>
         <iframe
-          class="airtable-embed"
+          className="airtable-embed"
           src="https://airtable.com/embed/shrkymEddJiRnXOz0?backgroundColor=cyan&viewControls=on"
           frameborder="0"
           onmousewheel=""
