@@ -1,5 +1,6 @@
 import React from "react";
 import Head from "next/head";
+import { useRouter } from "next/router";
 import { FormiumForm, defaultComponents } from "@formium/react";
 
 import { formium } from "../../lib/formium";
@@ -16,6 +17,8 @@ export async function getStaticProps(context) {
 }
 // Your formium form is now available as a prop
 export default function Apply({ form }) {
+  const router = useRouter();
+
   const myComponents = {
     ...defaultComponents,
     ...components,
@@ -49,7 +52,7 @@ export default function Apply({ form }) {
               // Send form values to Formium
               try {
                 await formium.submitForm("findamod", values);
-                alert("Success");
+                router.push("/faq");
               } catch (err) {
                 console.warn(err);
               }

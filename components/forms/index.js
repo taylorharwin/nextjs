@@ -29,16 +29,22 @@ const MyCheckbox = ({
 }) => {
   return (
     <label>
-      <Checkbox {...props} />
+      <Checkbox
+        {...props}
+        checked={checked}
+        name={name}
+        onChange={onChange}
+        value={value}
+      />
       {label}
     </label>
   );
 };
 
-const MyRadio = ({ label, ...props }) => {
+const MyRadio = ({ value, label, ...props }) => {
   return (
     <label>
-      <Radio {...props} />
+      <Radio {...props} value={value} />
       {label}
     </label>
   );
@@ -47,6 +53,7 @@ const MyRadio = ({ label, ...props }) => {
 const MyTextField = ({ label, ...props }) => {
   return (
     <TextField
+      {...props}
       style={{ width: "100%" }}
       id="outlined-basic"
       label={label}
@@ -73,7 +80,7 @@ const FormControl = React.memo(function FormControl({
       )}
       {description && <div>{description}</div>}
       <div>{children}</div>
-      {/* {error && <div>{error}</div>} */}
+      {error && <div>{error}</div>}
     </div>
   );
 });
