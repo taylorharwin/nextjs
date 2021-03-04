@@ -23,11 +23,12 @@ export default function Search() {
       </div>
 
       <main style={{ width: "100%", marginLeft: "10%", marginRight: "10%" }}>
+        <h1>Search the directory and select mods to book</h1>
         <iframe
           className="airtable-embed"
           src="https://airtable.com/embed/shrkymEddJiRnXOz0?backgroundColor=cyan&viewControls=on"
-          frameborder="0"
-          onmousewheel=""
+          frameBorder="0"
+          onMouseWheel=""
           width="100%"
           height="533"
           style={{ background: "transparent", border: "1px solid #ccc" }}

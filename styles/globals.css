@@ -31,3 +31,7 @@ button:hover {
 h1 {
   font-size: 64px;
 }
+
+.form {
+  width: 80%;
+}

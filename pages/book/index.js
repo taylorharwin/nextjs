@@ -1,40 +1,60 @@
 import React from "react";
 import Head from "next/head";
+import styles from "../../styles/Home.module.css";
+import Emoji from "../../components/emoji";
 import { useRouter } from "next/router";
+
+import components from "../../components/forms";
+
 import { FormiumForm, defaultComponents } from "@formium/react";
 
 import { formium } from "../../lib/formium";
 
-import components from "../../components/forms";
-
-import styles from "../../styles/Home.module.css";
-
 export async function getStaticProps(context) {
   // You can find your form's slug in the API Information panel
   // on your form's Overview page in the dashboard.
-  const form = await formium.getFormBySlug("findamod");
+  const form = await formium.getFormBySlug("requesttobook");
   return { props: { form } };
 }
-// Your formium form is now available as a prop
-export default function Apply({ form }) {
+export default function Home({ form }) {
   const router = useRouter();
+
+  const { name } = router.query;
+
+  console.log(form);
+  const [success, setSuccess] = React.useState(false);
 
   const myComponents = {
     ...defaultComponents,
     ...components,
   };
 
-  console.log(form);
+  const message = success ? (
+    <h3>Thanks! We'll get to work</h3>
+  ) : (
+    <div styles={{ width: "100%", textAlign: "left" }}>
+      <FormiumForm
+        onSubmit={async (values) => {
+          // Send form values to Formium
+          await formium.submitForm("requesttobook", values);
+          setSuccess(true);
+        }}
+        components={myComponents}
+        data={form}
+      />
+    </div>
+  );
+
   return (
     <div className={styles.container}>
       <Head>
+        <title>Find a Mod</title>
+        <link rel="icon" href="/favicon.ico" />
         <link rel="preconnect" href="https://fonts.gstatic.com" />
         <link
           href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans&display=swap"
           rel="stylesheet"
         />
-        <title>Apply to be a moderator</title>
-        <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <div className={styles.header}>
@@ -47,22 +67,9 @@ export default function Apply({ form }) {
       </div>
 
       <main className={styles.main}>
-        <div className={styles.container}>
-          <FormiumForm
-            onSubmit={async (values) => {
-              // Send form values to Formium
-              try {
-                await formium.submitForm("findamod", values);
-                router.push("/faq");
-              } catch (err) {
-                console.warn(err);
-              }
-            }}
-            components={myComponents}
-            data={form}
-          />
-        </div>
+        <div className={styles.grid}>{message}</div>
       </main>
+
       <footer className={styles.footer}>copyright 2021 findamod.com</footer>
     </div>
   );
