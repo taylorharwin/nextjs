@@ -25,22 +25,6 @@ export default function Home({ form }) {
     ...components,
   };
 
-  const message = success ? (
-    <h3>Your response is tracked. Thanks so much!</h3>
-  ) : (
-    <div styles={{ textAlign: "left" }}>
-      <FormiumForm
-        onSubmit={async (values) => {
-          // Send form values to Formium
-          await formium.submitForm("email", values);
-          setSuccess(true);
-        }}
-        components={myComponents}
-        data={form}
-      />
-    </div>
-  );
-
   return (
     <div className={styles.container}>
       <Head>
@@ -54,12 +38,15 @@ export default function Home({ form }) {
       </Head>
 
       <div className={styles.header}>
-        <a href="/faq" className={styles.secondaryCTA}>
-          <p>How we select our moderators</p>
-        </a>
-        <a href="/apply" className={styles.primaryCTA}>
-          <p>Apply to be a moderator</p>
-        </a>
+        <div>Some Header</div>
+        <span style={{ display: "flex", width: "100%" }}>
+          <a href="/faq" className={styles.secondaryCTA}>
+            <p>How we select our moderators</p>
+          </a>
+          <a href="/apply" className={styles.primaryCTA}>
+            <p>Apply to be a moderator</p>
+          </a>
+        </span>
       </div>
 
       <main className={styles.main}>
@@ -79,17 +66,23 @@ export default function Home({ form }) {
 
         <p
           style={{
-            width: "50%",
             textAlign: "center",
             fontSize: "16px",
             marginBottom: "32px",
           }}
         >
-          We're carefully selecting the best moderators and will launch soon.
-          Sign up to be first to hear of our launch.
+          We're here to help your brand launch on Clubhouse. We can provide you
+          a verified moderator or consultation on how to host your first event.
         </p>
 
-        <div className={styles.grid}>{message}</div>
+        <div className={styles.grid}>
+          <a href="/faq" className={styles.secondaryCTA}>
+            <p>Request a consultation</p>
+          </a>
+          <a href="/apply_brand" className={styles.primaryCTA}>
+            <p>Request a verified moderator</p>
+          </a>
+        </div>
       </main>
 
       <footer className={styles.footer}>copyright 2021 findamod.com</footer>

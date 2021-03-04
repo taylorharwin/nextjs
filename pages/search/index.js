@@ -27,12 +27,12 @@ export default function Search() {
         <h3>Filter for what you need and click "Request to Book"</h3>
         <iframe
           className="airtable-embed"
-          src="https://airtable.com/embed/shrkymEddJiRnXOz0?backgroundColor=cyan&viewControls=on"
+          src="https://airtable.com/embed/shrUON8k0id5R3FsZ?backgroundColor=cyan&layout=card&viewControls=on"
           frameBorder="0"
-          onMouseWheel=""
+          onmousewheel=""
           width="100%"
           height="533"
-          style={{ background: "transparent", border: "1px solid #ccc" }}
+          style={{ background: "transparent" }}
         ></iframe>
       </main>
 
