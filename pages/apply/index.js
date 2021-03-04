@@ -47,8 +47,12 @@ export default function Apply({ form }) {
           <FormiumForm
             onSubmit={async (values) => {
               // Send form values to Formium
-              await formium.submitForm("findamod", values);
-              alert("Success");
+              try {
+                await formium.submitForm("findamod", values);
+                alert("Success");
+              } catch (err) {
+                console.warn(err);
+              }
             }}
             components={myComponents}
             data={form}
